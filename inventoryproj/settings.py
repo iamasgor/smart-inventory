@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -55,6 +54,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+AUTH_USER_MODEL = 'accounts.User'
+LOGIN_URL = 'login'               # name of login url
+LOGIN_REDIRECT_URL = 'dashboard'  # where to send after login
 
 ROOT_URLCONF = 'inventoryproj.urls'
 
