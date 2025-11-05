@@ -36,3 +36,34 @@ A **Django-based Smart Inventory Management System** that helps businesses effic
 git clone https://github.com/yourusername/smart-inventory.git
 cd smart-inventory
 ```
+### 2. Create and Activate a Virtual Environment
+```
+python -m venv venv
+source venv/bin/activate    # On Windows: venv\Scripts\activate
+```
+### 3. Install Dependencies
+```
+pip install -r requirements.txt
+```
+### 4. Configure Environment Variables
+
+Create a .env file in the project root:
+```
+DEBUG=True
+SECRET_KEY=your-secret-key
+DATABASE_URL=sqlite:///db.sqlite3
+```
+### 5. Apply Migrations
+```
+python manage.py migrate
+```
+### 6. Create Superuser
+``` 
+python manage.py createsuperuser 
+```
+### 7. Run the Server
+```
+python manage.py runserver
+```
+Then open:
+👉 http://127.0.0.1:8000/
