@@ -16,6 +16,7 @@ venv/
 .env/
 __pycache__/
 bower_components/
+.github/
 
 # ------------------------------
 # Build / Distribution folders
