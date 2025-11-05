@@ -67,3 +67,16 @@ python manage.py runserver
 ```
 Then open:
 👉 http://127.0.0.1:8000/
+
+## 🧰 Features to Extend
+- Integration with barcode scanners
+- Role-based access control (Admin, Staff, Viewer)
+- REST API endpoints for mobile or IoT integration
+- Auto-generated PDF invoices and reports
+- Inventory forecasting with machine learning
+
+
+## 💬 Contact
+Author: Ali Asgor
+📧 Email: hello@asgor.net
+🌐 GitHub: @iamasgor
