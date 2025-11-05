@@ -33,7 +33,7 @@ A **Django-based Smart Inventory Management System** that helps businesses effic
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/smart-inventory.git
+git clone https://github.com/iamasgor/smart-inventory.git
 cd smart-inventory
 ```
 ### 2. Create and Activate a Virtual Environment
