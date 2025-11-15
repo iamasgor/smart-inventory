@@ -5,6 +5,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 
 # Create your views here.
+def home_view(request):
+    return render(request, 'home.html')
+
 @login_required(login_url='login')
 def index_view(request):
     return render(request, 'accounts/index.html')

@@ -1,45 +1,89 @@
+{% load static %}
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
-    <meta name="generator" content="Astro v5.13.2" />
-    <title>Starter Template · Bootstrap v5.3</title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/starter-template/" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <meta name="theme-color" content="#712cf9" />
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{% block title %}My App{% endblock %}</title>
 
-  </head>
-  <body>
-    <div class="col-lg-8 mx-auto p-4 py-md-5">
-      <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
-        <a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
-          <span class="fs-4">Starter template</span>
-        </a>
-      </header>
-      <main>
-        <h1 class="text-body-emphasis">Get started with Bootstrap</h1>
-        <p class="fs-5 col-md-8">
-          Quickly and easily get started with Bootstrap's compiled,
-          production-ready files with this barebones example featuring some
-          basic HTML and helpful links. Download all our examples to get
-          started.
-        </p>
-        <div class="mb-5">
-          <a href="../examples" class="btn btn-primary btn-lg px-4"
-            >Download examples</a
-          >
+  <!-- Bootstrap CSS (v5) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Your custom css -->
+  <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+    <style>
+        /* Boxed layout */
+.app-box {
+  max-width: 1150px;
+  margin: 24px auto;
+  background: transparent;
+  border-radius: 8px;
+}
+
+/* Make the inner content card stand out from page background */
+.app-box > .navbar,
+.app-box > .d-flex {
+  border-radius: 8px;
+}
+
+/* Sidebar sizing */
+.sidebar {
+  width: 220px;
+  min-width: 220px;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+
+/* On small screens the sidebar is hidden (offcanvas will show) */
+@media (max-width: 767px) {
+  .sidebar { display: none; }
+}
+
+/* Tweak the main content so it sits nicely next to the sidebar */
+main {
+  min-height: 60vh;
+}
+
+/* Optional nicer card shadow */
+.card.shadow-sm {
+  box-shadow: 0 3px 8px rgba(20,20,20,0.04);
+}
+
+    </style>
+</head>
+<body class="bg-light">
+
+  <!-- Outer boxed container -->
+  <div class="app-box">
+
+    <!-- header -->
+    {% include 'includes/header.html' %}
+
+    <div class="d-flex">
+      <!-- side nav -->
+      {% include 'includes/side_nav.html' %}
+
+      <!-- main content area -->
+      <main class="flex-grow-1 p-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            {% block content %}
+            <!-- default fallback -->
+            <h3>Welcome</h3>
+            <p>Welcome to the site — replace this area with your page content.</p>
+            {% endblock %}
+          </div>
         </div>
       </main>
-      <footer class="pt-5 my-5 text-body-secondary border-top">
-        Created by the Bootstrap team &middot; &copy; 2025
-      </footer>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-      class="astro-vvvwv3sm"
-    ></script>
-  </body>
+
+    <!-- footer -->
+    {% include 'includes/footer.html' %}
+
+  </div>
+
+  <!-- Bootstrap JS (bundle includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
