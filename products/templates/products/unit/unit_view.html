@@ -1,0 +1,41 @@
+<!-- sales_app/templates/sales_app/dashboard.html -->
+{% extends 'core/base.html' %}
+
+{% block title %}Unit List{% endblock %}
+
+{% block pagehead %}Unit{% endblock %}
+
+{% block content %}
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                      <h3 class="card-title">Unit List</h3>
+                    <div class="card-tools">
+                      <a href="unit_form.html" class="btn btn-success btn-sm">Create</a>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <table class="table table-bordered" role="table">
+                      <thead>
+                        <tr>
+                          <th style="width: 10px" scope="col">#</th>
+                          <th scope="col">Unit Name</th>
+                          <th scope="col">Short Name</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="align-middle">
+                          <td>1.</td>
+                          <td>Kilo Gram</td>
+                          <td>Kg</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+              </div>
+            </div>
+{% endblock %}
