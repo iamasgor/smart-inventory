@@ -26,11 +26,13 @@
                         </tr>
                       </thead>
                       <tbody>
+                       {% for unit in units %}
                         <tr class="align-middle">
                           <td>1.</td>
-                          <td>Kilo Gram</td>
+                          <td>{{ unit.unit_name }}</td>
                           <td>Kg</td>
                         </tr>
+                       {% endfor %}
                       </tbody>
                     </table>
                   </div>

@@ -1,38 +1,24 @@
 <!-- sales_app/templates/sales_app/dashboard.html -->
 {% extends 'core/base.html' %}
 
-{% block title %}Unit List{% endblock %}
+{% block title %}Unit Details{% endblock %}
 
-{% block pagehead %}Unit{% endblock %}
+{% block pagehead %}Unit Details{% endblock %}
 
 {% block content %}
             <div class="row">
               <div class="col-12">
                 <div class="card">
                   <div class="card-header">
-                      <h3 class="card-title">Unit List</h3>
-                    <div class="card-tools">
-                      <a href="unit_form.html" class="btn btn-success btn-sm">Create</a>
-                    </div>
+                      <h3 class="card-title">New Unit Created</h3>
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body">
-                    <table class="table table-bordered" role="table">
-                      <thead>
-                        <tr>
-                          <th style="width: 10px" scope="col">#</th>
-                          <th scope="col">Unit Name</th>
-                          <th scope="col">Short Name</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr class="align-middle">
-                          <td>1.</td>
-                          <td>Kilo Gram</td>
-                          <td>Kg</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                    <h3>Unit Name: {{ unit.unit_name }}</h3>
+                    <h3>Short Name: {{ unit.unit_short_name }}</h3>
+                    <p><i>by {{ unit.created_by.username }} on {{ unit.created_at }}</i></p>
+                      <a href="{% url 'create_unit' %}" class="btn btn-success btn-sm">Create Another</a>
+                      <a href="{% url 'unit_list' %}" class="btn btn-warning btn-sm">Back</a>
                   </div>
                   <!-- /.card-body -->
                 </div>

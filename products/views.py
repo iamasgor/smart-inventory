@@ -18,9 +18,9 @@ def create_unit(request):
         form = UnitForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user
+            post.created_by = request.user
             post.save()
-            return redirect("post_detail", pk=post.pk)
+            return redirect("unit_detail", pk=post.pk)
     else:
         form = UnitForm()
     return render(request, "products/unit/unit_form.html", {"form": form})
