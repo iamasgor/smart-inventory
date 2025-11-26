@@ -28,9 +28,9 @@
                       <tbody>
                        {% for unit in units %}
                         <tr class="align-middle">
-                          <td>1.</td>
+                          <td>{{ unit.id }}</td>
                           <td>{{ unit.unit_name }}</td>
-                          <td>Kg</td>
+                          <td>{{ unit.unit_short_name }}</td>
                         </tr>
                        {% endfor %}
                       </tbody>
