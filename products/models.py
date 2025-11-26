@@ -12,3 +12,17 @@ class Unit(models.Model):
 
     def __str__(self):
         return self.unit_name
+
+class Product(models.Model):
+    product_name = models.CharField(max_length=100)
+    product_code = models.CharField(max_length=100)
+    product_description = models.TextField(null=True, blank=True)
+    product_unit = models.ForeignKey(Unit, on_delete=models.CASCADE)
+    product_quantity = models.IntegerField()
+    product_price = models.FloatField(null=True)
+    product_image = models.ImageField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.product_name
