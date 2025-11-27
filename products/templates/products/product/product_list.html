@@ -14,33 +14,35 @@
                 <div class="card-tools">
                     <!--                      <a href="{% url 'create_product' %}" class="btn btn-success btn-sm">Create</a>-->
                     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#productModal">Add Product
+                        data-bs-target="#productModal">Add Product
                     </button>
                 </div>
             </div>
 
             {% include 'products/product/product_form.html' %}
+            {% include 'products/product/product_edit_modal.html' %}
 
             <!-- /.card-header -->
             <div class="card-body">
                 <table class="table table-bordered table-striped">
                     <thead>
-                    <tr>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Code</th>
-                        <th>Description</th>
-                        <th>Unit</th>
-                    </tr>
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Code</th>
+                            <th>Description</th>
+                            <th>Unit</th>
+                            <th>Actions</th>
+                        </tr>
                     </thead>
                     <tbody id="product-table-body">
-                    {% for product in products %}
-                    {% include "products/partials/product_row.html" %}
-                    {% empty %}
-                    <tr>
-                        <td colspan="5">No products yet.</td>
-                    </tr>
-                    {% endfor %}
+                        {% for product in products %}
+                        {% include "products/product/product_row.html" %}
+                        {% empty %}
+                        <tr>
+                            <td colspan="6">No products yet.</td>
+                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>

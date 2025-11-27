@@ -1,0 +1,78 @@
+<!-- products/product/product_edit_form_fields.html -->
+<form id="product-edit-form" hx-post="{% url 'update_product' product.id %}" hx-target="#product-{{ product.id }}"
+    hx-swap="outerHTML" hx-encoding="multipart/form-data" class="row g-3">
+    {% csrf_token %}
+
+    {% if form.non_field_errors %}
+    <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+    {% endif %}
+
+    <div class="col-12">
+        <label class="form-label">Product Name</label>
+        {{ form.product_name }}
+        {% if form.product_name.errors %}
+        <div class="text-danger">{{ form.product_name.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Product Code</label>
+        {{ form.product_code }}
+        {% if form.product_code.errors %}
+        <div class="text-danger">{{ form.product_code.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Unit</label>
+        {{ form.product_unit }}
+        {% if form.product_unit.errors %}
+        <div class="text-danger">{{ form.product_unit.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Quantity</label>
+        {{ form.product_quantity }}
+        {% if form.product_quantity.errors %}
+        <div class="text-danger">{{ form.product_quantity.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Price</label>
+        {{ form.product_price }}
+        {% if form.product_price.errors %}
+        <div class="text-danger">{{ form.product_price.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div class="col-12">
+        <label class="form-label">Description</label>
+        {{ form.product_description }}
+        {% if form.product_description.errors %}
+        <div class="text-danger">{{ form.product_description.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div class="col-12">
+        <label class="form-label">Image</label>
+        {{ form.product_image }}
+        {% if form.product_image.errors %}
+        <div class="text-danger">{{ form.product_image.errors }}</div>
+        {% endif %}
+        {% if product.product_image %}
+        <div class="mt-2">
+            <p class="text-muted small">Current image:</p>
+            <img src="{{ product.product_image.url }}" alt="{{ product.product_name }}"
+                style="max-width:150px; max-height:100px; object-fit:cover;">
+        </div>
+        {% endif %}
+        <div class="image-preview mt-2"></div>
+    </div>
+
+    <div class="col-12 text-end">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+</form>

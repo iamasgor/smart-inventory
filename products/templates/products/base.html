@@ -174,6 +174,22 @@
         if (preview) preview.innerHTML = '';
       }, 350);
     });
+
+    // close bootstrap modal when server triggers 'productUpdated'
+    htmx.on("productUpdated", function(evt) {
+      const modalEl = document.getElementById('productEditModal');
+      const bsModal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+      bsModal.hide();
+
+      // optional: reset the form after a very short timeout (after hide animation)
+      setTimeout(() => {
+        const form = modalEl.querySelector('form');
+        if (form) form.reset();
+        // remove any preview images if present
+        const preview = modalEl.querySelector('.image-preview');
+        if (preview) preview.innerHTML = '';
+      }, 350);
+    });
     </script>
     <!--end::OverlayScrollbars Configure-->
     <!--end::Script-->
