@@ -1,15 +1,18 @@
 <!-- products/partials/product_row.html -->
 <tr id="product-{{ product.id }}">
+   {% comment "This section is for future development" %}
   <td style="width:100px;">
     {% if product.product_image %}
     <img src="{{ product.product_image.url }}" alt="{{ product.product_name }}"
       style="max-width:80px; max-height:60px; object-fit:cover;">
     {% else %}
     <span class="text-muted">—</span>
-    {% endif %}
   </td>
+    {% endcomment %}
+    <td>{{ product.product_code }}</td>
   <td>{{ product.product_name }}</td>
-  <td>{{ product.product_code }}</td>
+  <td>{{ product.product_price }}</td>
+    <td>{{ product.product_quantity }}</td>
   <td>{{ product.product_description|truncatechars:80 }}</td>
   <td>{% if product.product_unit %}{{ product.product_unit.unit_short_name }}{% endif %}</td>
   <td>
